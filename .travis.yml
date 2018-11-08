@@ -1,0 +1,16 @@
+language: go
+
+services:
+  - redis-server
+go:
+  - 1.11.2
+
+env:
+  - GO111MODULE=on
+
+install:
+  - git config --global url."git@github.com:".insteadOf "https://github.com/"
+  - cd $GOPATH/src/github.com/DispatchMe/go-work
+  - go test -cover -count=1 -p=1 ./...
+
+script: cd $GOPATH/src/github.com/DispatchMe/go-work
